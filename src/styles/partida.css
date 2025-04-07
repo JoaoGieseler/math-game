@@ -1,0 +1,82 @@
+.partida {
+    display: none;
+    margin-top: 1em;
+    background-color: var(--primary-color);
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.preparacao__titulo {
+    text-align: center;
+    font-size: 3em;
+    color: var(--white);
+}
+
+.preparacao__tempo {
+    text-align: center;
+    font-size: 6em;
+    font-weight: 900;
+    color: var(--yellow);
+}
+
+.resposta__input {
+    border: none;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    height: 3em;
+    width: 65%;
+    border-radius: 0.5em;
+}
+
+.partida__info,
+.partida__calculo {
+    display: none;
+}
+
+.partida__info {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.partida__titulo {
+    color: var(--yellow);
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.partida__contagem-regessiva {
+    font-weight: 900;
+    font-size: 3em;
+    color: var(--white);
+}
+
+.calculo {
+    text-align: center;
+    font-weight: 500;
+    font-size: 3.5em;
+    color: var(--white);
+    margin: 0.5em 0;
+    background-color: var(--secondary-color);
+    padding: 0.5em 0;
+    border-radius: 0.3em;
+}
+
+.calculo strong{
+    font-weight: 500;
+    color: var(--yellow);
+}
+
+.calculo__resposta {
+    display: flex;
+}
+
+.resposta__confirmar {
+    border: none;
+    background-color: var(--green);
+    font-weight: 700;
+    font-size: 1.2em;
+    border-radius: 1em;
+    width: 35%;
+    margin-left: 1em;
+}

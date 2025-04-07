@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg-color: #0C0950;
+    --primary-color: #161179;
+    --secondary-color: #261FB3;
+    --white: #FBE4D6;
+    --yellow: #FFB200;
+    --green: #82CD47;
+    --black: #000000;
+    --orange: #DF6D2D;
+    --dark-orange: #C84C05;
+
+    --primary-font: 'Saira Condensed', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--primary-font);
+    padding: 12px;
+}
+
+.cabecalho {
+    display: flex;
+    background-color: var(--primary-color);
+    border-radius: 0.5em;
+    padding: 1em;
+    justify-content: space-between;
+}
+
+.navegacao__titulo {
+    font-size: 30px;
+    color: var(--white);
+}
+
+.navegacao__titulo strong {
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--yellow);
+}
+
+.cabecalho__jogador {
+    display: flex;
+    align-items: center;
+}
+
+.jogador__nome {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--white);
+    margin: 0 4px;
+}
+
+.jogador__imagem {
+    width: 3em;
+}

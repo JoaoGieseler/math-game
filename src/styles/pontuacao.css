@@ -1,0 +1,43 @@
+.pontuacao {
+    display: none;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    border-radius: 0.5em;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.pontuacao__saudacao{
+    display: flex;
+    justify-content: space-between;
+}
+
+.usuario__nome {
+    color: var(--white);
+    font-size: 3em;
+}
+
+.pontuacao__subtitulo {
+    color: var(--yellow);
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.pontuacao__info {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--white);
+    border-radius: 0.5em;
+    padding: 1em 0;
+}
+
+.coluna__item {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.coluna__item i {
+    color: var(--orange);
+    font-size: 1.2em;
+}

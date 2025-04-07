@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Game</title>
+
+    <link rel="stylesheet" href="./src/styles/header.css">
+    <link rel="stylesheet" href="./src/styles/cadastro.css">
+    <link rel="stylesheet" href="./src/styles/menu.css">
+    <link rel="stylesheet" href="./src/styles/rodape.css">
+    <link rel="stylesheet" href="./src/styles/pontuacao.css">
+    <link rel="stylesheet" href="./src/styles/partida.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <nav class="cabecalho__navegacao">
+            <h1 class="navegacao__titulo"><i>Math<strong>GAME</strong></i></h1>
+        </nav>
+        <div class="cabecalho__jogador">
+            <p id="jogador" class="jogador__nome">User</p>
+            <img class="jogador__imagem" src="./src/img/do-utilizador.png" alt="User account">
+        </div>
+    </header>
+
+    <section class="cadastro">
+        <h2 class="cadastro__titulo">Insira o seu nome de usuário:</h2>
+        <div class="cadastro__usuario">
+            <label for="nome"></label>
+            <input class="cadastro__input" type="text" id="nome" name="nome" placeholder="Usuário">
+            <button id="concluido" class="cadastro__botao">Concluido</button>
+        </div>
+    </section>
+
+    <section id="pontuacao" class="pontuacao">
+        <div class="pontuacao__saudacao">
+            <h2 id="saudacao" class="usuario__nome"></h2>
+            <img class="menu__imagem" src="./src/img/ajudando2.png" alt="Ajuda">
+        </div>
+        <h3 class="pontuacao__subtitulo">Seu status:</h3>
+        <div class="pontuacao__info">
+            <div class="primeira__coluna">
+                <p class="coluna__item">Acertos totais: <i id="info-1">0</i></p>
+                <p class="coluna__item">Erros totais: <i id="info-2">0</i></p>
+            </div>
+            <div class="segunda__coluna">
+                <p class="coluna__item">Taxa de acertos: <i id="info-3">0</i></p>
+                <p class="coluna__item">Acertos consecutivos: <i id="info-4">0</i></p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="menu" class="menu">
+            <div class="menu__info">
+                <h2 class="menu__titulo">Modos de Jogo</h2>
+                <img class="menu__imagem" src="./src/img/ajudando2.png" alt="Ajuda">
+            </div>
+            <div class="menu__opcoes">
+                <ul class="opcoes__lista">
+                    <li class="lista__item">
+                        <a id="link-1" class="lista__link" href="#">Adição</a></li>
+                    <li class="lista__item">
+                        <a id="link-2" class="lista__link" href="#">Subtração</a></li>
+                    <li class="lista__item">
+                        <a id="link-3" class="lista__link" href="#">Multiplicação</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <section id="partida" class="partida">
+        <div id="contagemPreparacao" class="partida__contagem__preparacao">
+            <h2 class="preparacao__titulo">Prepare-se</h2>
+            <p id="preparacao" class="preparacao__tempo">5</p>
+        </div>
+
+        <div id="calculo__info" class="partida__info">
+            <h2 class="partida__titulo">ADIÇÃO</h2>
+            <p id="tempo" class="partida__contagem-regessiva">60</p>
+        </div>
+
+        <div id="calculo" class="partida__calculo">
+            <p id="questao" class="calculo"></p>
+            <div class="calculo__resposta">
+                <label for="resposta"></label>
+                <input class="resposta__input" type="number" name="resposta" id="resposta" placeholder="sua resposta">
+                <button class="resposta__confirmar" id="confirmar">Pronto</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="rodape__container">
+            <ul class="rodape__lista">
+                <li class="rodape__item"><strong class="rodape__titulo"><hr>Versão adaptada para fim escolar</strong></li>
+                <li class="rodape__item">Escola de Educação Básica São Pedro</li>
+                <li class="rodape__item">Desenvolvido por João Vitor Gieseler Tomelin e Gustavo Machado Sichelero</li>
+                <li class="rodape__item">3º ano 01</li>
+                <li class="rodape__item">Disciplina de matemática</li>
+                <li class="rodape__item">Solicitado por Cleyton</li>
+            </ul>
+        </div>
+    </footer>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

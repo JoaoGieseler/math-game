@@ -1,0 +1,22 @@
+.rodape {
+    margin: 1em 0;
+}
+
+.rodape__item {
+    list-style-type: none;
+    margin: 0.5em 0;
+    color: var(--white);
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+.rodape__titulo {
+    color: var(--yellow);
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+hr {
+    margin: 1.5em 0;
+}

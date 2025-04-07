@@ -1,0 +1,45 @@
+.cadastro {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    border-radius: 0.5em;
+    align-items: center;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.cadastro__titulo {
+    color: var(--white);
+}
+
+.cadastro__usuario {
+    display: flex;
+    margin: 0.5em;
+}
+
+.cadastro__input {
+    border: none;
+    padding: 0.7em;
+    border-radius: 4px;
+    margin-right: 0.3em;
+}
+
+.cadastro__input::placeholder {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 900;
+}
+
+.cadastro__botao {
+    padding: 0.7em;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--orange);
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1em;
+}
+
+.cadastro__botao:active {
+    background-color: var(--dark-orange);
+}

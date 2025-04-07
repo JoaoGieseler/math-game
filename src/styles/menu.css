@@ -1,0 +1,45 @@
+.menu {
+    
+    background-color: var(--primary-color);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.menu__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu__titulo {
+    color: var(--yellow);
+    font-size: 28px;
+}
+
+.menu__imagem {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: var(--white);
+    border-radius: 2em;
+}
+
+.lista__item {
+    text-align: center;
+    list-style-type: none;
+    margin: 0.5em 0;
+}
+
+.lista__link {
+    display: block;
+    padding: 1em;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.lista__link:active {
+    background-color: var(--bg-color);
+}
