@@ -1,0 +1,36 @@
+.popup__wrapper {
+    display: none;
+    position: fixed;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5em;
+    background-color: var(--white);
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 1em;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    backdrop-filter: blur(5px);
+}
+  
+.popup__conteudo {
+    text-align: center;
+    background-color: var(--yellow);
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+}
+  
+.popup__botao {
+    margin-top: 1em;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
