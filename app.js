@@ -1,4 +1,4 @@
-import { adicionar, subtrair, multiplicar } from './src/scripts/funcoes.js';
+import { adicionar, subtrair, multiplicar, abrirPopup } from './src/scripts/funcoes.js';
 
 const inputNome = document.getElementById('nome');
 const botaoConfirmarNome = document.getElementById('concluido');
@@ -7,13 +7,19 @@ const pontuacao = document.getElementById('pontuacao');
 const saudacao = document.getElementById('saudacao');
 const menuDisplay = document.getElementById('menu');
 const cadastro = document.querySelector('.cadastro');
+const popupWrapper = document.getElementById('popup__wrapper');
 
 botaoConfirmarNome.addEventListener('click', function() {
-    const nomeEscolhido = inputNome.value;
-    nomeJogador.textContent = nomeEscolhido;
-    cadastro.style.setProperty('display', 'none');
-    pontuacao.style.setProperty('display', 'flex');
-    saudacao.textContent = `Olá, ${nomeEscolhido}!`;
+    if(inputNome.value == '') {
+        abrirPopup('nomeIndefinido');
+    } else {
+        const nomeEscolhido = inputNome.value;
+        nomeJogador.textContent = nomeEscolhido;
+        cadastro.style.setProperty('display', 'none');
+        popupWrapper.style.display = 'none';
+        pontuacao.style.setProperty('display', 'flex');
+        saudacao.textContent = `Olá, ${nomeEscolhido}!`;
+    };
 });
 
 const links = document.querySelectorAll('.lista__link');
@@ -23,7 +29,7 @@ for (let i = 0; i < links.length; i++) {
     links[i].addEventListener('click', function(event) {
         event.preventDefault();
         if (saudacao.textContent == '') {
-            alert('Insira seu nome de usuário para proseguir!');
+            abrirPopup('nomeIndefinido');
         } else {
             if (links[i].id === 'link-1') {
                 adicionar(operacao);
