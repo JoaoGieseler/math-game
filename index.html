@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./src/styles/rodape.css">
     <link rel="stylesheet" href="./src/styles/pontuacao.css">
     <link rel="stylesheet" href="./src/styles/partida.css">
+    <link rel="stylesheet" href="./src/styles/pop-up.css">
 </head>
 
 <body>
@@ -33,6 +34,14 @@
         </div>
     </section>
 
+    <section class="popup__wrapper" id="popup__wrapper">
+        <div class="popup__conteudo">
+            <h2 class="popup__titulo" id="popup__titulo">BOAS VINDAS</h2>
+            <p class="popup__texto" id="popup__texto">Você está fazendo parte da versão de testes do Math Game! Relate qualquer bug apresentado, seu feedback é crucial para tornar este projeto ainda melhor.</p>
+            <button class="popup__botao" id="fechar-popup">Entendido</button>
+        </div>
+    </section>
+
     <section id="pontuacao" class="pontuacao">
         <div class="pontuacao__saudacao">
             <h2 id="saudacao" class="usuario__nome"></h2>
@@ -46,7 +55,7 @@
             </div>
             <div class="segunda__coluna">
                 <p class="coluna__item">Taxa de acertos: <i id="info-3">0</i></p>
-                <p class="coluna__item">Acertos consecutivos: <i id="info-4">0</i></p>
+                <p class="coluna__item">Questões resolvidas: <i id="info-4">0</i></p>
             </div>
         </div>
     </section>
@@ -73,7 +82,7 @@
     <section id="partida" class="partida">
         <div id="contagemPreparacao" class="partida__contagem__preparacao">
             <h2 class="preparacao__titulo">Prepare-se</h2>
-            <p id="preparacao" class="preparacao__tempo">5</p>
+            <p id="preparacao" class="preparacao__tempo"></p>
         </div>
 
         <div id="calculo__info" class="partida__info">
@@ -96,10 +105,8 @@
             <ul class="rodape__lista">
                 <li class="rodape__item"><strong class="rodape__titulo"><hr>Versão adaptada para fim escolar</strong></li>
                 <li class="rodape__item">Escola de Educação Básica São Pedro</li>
-                <li class="rodape__item">Desenvolvido por João Vitor Gieseler Tomelin e Gustavo Machado Sichelero</li>
                 <li class="rodape__item">3º ano 01</li>
                 <li class="rodape__item">Disciplina de matemática</li>
-                <li class="rodape__item">Solicitado por Cleyton</li>
             </ul>
         </div>
     </footer>
