@@ -57,7 +57,7 @@ function contagemRegressivaPreparacao() {
 
 function contagemRegressivaJogo() {
     return new Promise (resolve => {
-        let segundos = 2;
+        let segundos = 60;
         const contador = setInterval(() => {
             if (segundos >= 0) {
                 tempo.textContent = segundos;
