@@ -1,16 +1,45 @@
 const partida = document.getElementById('partida');
 const pontuacao = document.getElementById('pontuacao');
 const contagemDePreparacao = document.getElementById('contagemPreparacao');
+const preparacao = document.getElementById('preparacao');
 const calculoInfo = document.getElementById('calculo__info');
 const calculo = document.getElementById('calculo');
 const tempo = document.getElementById('tempo');
 const menuDisplay = document.getElementById('menu');
+const questao = document.getElementById('questao');
+const resposta = document.getElementById('resposta');
+const botaoConfirmarResposta = document.getElementById('confirmar');
+const popupTexto = document.getElementById('popup__texto');
+const fecharPopupBotao = document.getElementById('fechar-popup');
+const popupTitulo = document.getElementById('popup__titulo');
+const popupWrapper = document.getElementById('popup__wrapper');
+
 let respostaCorreta = 0;
+let acertos = 0;
+let erros = 0;
+let taxaAcertos = 0;
+let questoesTotais = 0;
+let condicao;
+
+export function abrirPopup(condicao) {
+    switch (condicao) {
+        case 'nomeIndefinido':
+            popupTitulo.textContent = 'ATENÇÃO'
+            popupTexto.textContent = 'Insira seu nome de usuário para prosseguir';
+            break;
+        case 'fimDeJogo':
+            popupTitulo.textContent = 'FIM DE JOGO'
+            popupTexto.textContent = 'Tempo esgotado!'
+    };
+    popupWrapper.style.setProperty('display', 'flex');
+    fecharPopupBotao.addEventListener('click', function() {
+        popupWrapper.style.setProperty('display', 'none');
+    });
+};
 
 function contagemRegressivaPreparacao() {
     return new Promise (resolve => {
         let segundos = 5;
-        const preparacao = document.getElementById('preparacao');
         preparacao.textContent = segundos;
         contagemDePreparacao.style.setProperty('display', 'block');
         const contador = setInterval(() => {
@@ -28,44 +57,38 @@ function contagemRegressivaPreparacao() {
 
 function contagemRegressivaJogo() {
     return new Promise (resolve => {
-        let segundos = 60;
-        const tempo = document.getElementById('tempo');
+        let segundos = 2;
         const contador = setInterval(() => {
             if (segundos >= 0) {
                 tempo.textContent = segundos;
                 segundos--;
             } else {
+                abrirPopup('fimDeJogo');
                 clearInterval(contador);
                 resolve();
-                alert('acabou o tempo!');
                 partida.style.setProperty('display', 'none');
                 calculoInfo.style.setProperty('display', 'none');
                 calculo.style.setProperty('display', 'none');
                 pontuacao.style.setProperty('display', 'flex');
                 menuDisplay.style.setProperty('display', 'block');
-                atualizarInformacoes(acertos, erros, taxaAcertos, maiorSequencia);
+                atualizarInformacoes(acertos, erros, taxaAcertos, questoesTotais);
             }
         }, 1000);
     });
 };
 
-const questao = document.getElementById('questao');
-
-let resposta = document.getElementById('resposta');
-const botaoConfirmarResposta = document.getElementById('confirmar');
-
-let acertos = 0;
-let erros = 0;
-let taxaAcertos = 0;
-let maiorSequencia = 0;
-let sequenciaAtual = 0;
-let condicao;
-
 function gerarCalculo(operacao) {
-    let num1 = Math.floor(Math.random() * 100) + 1;
-    let num2 = Math.floor(Math.random() * 100) + 1;
-
+    let num1;
+    let num2;
     let simboloOperacao;
+
+    if (operacao === 'multiplicar') {
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+    } else {
+        num1 = Math.floor(Math.random() * 100) + 1;
+        num2 = Math.floor(Math.random() * 100) + 1;
+    };
 
     switch (operacao) {
         case 'adicionar':
@@ -87,64 +110,59 @@ function gerarCalculo(operacao) {
     questao.textContent = `${num1} ${simboloOperacao} ${num2}`;
 };
 
-function atualizarInformacoes(acertos, erros, taxaAcertos, maiorSequencia) {
+function atualizarInformacoes(acertos, erros, taxaAcertos, questoesTotais) {
     taxaAcertos = (acertos / (acertos + erros)) * 100;
     document.getElementById('info-1').textContent = acertos;
     document.getElementById('info-2').textContent = erros;
     document.getElementById('info-3').textContent = `${taxaAcertos.toFixed(1)}%`;
-    document.getElementById('info-4').textContent = maiorSequencia;
+    document.getElementById('info-4').textContent = questoesTotais;
 };
 
-function verificarResposta() {
-    botaoConfirmarResposta.addEventListener('click', function() {
-        if(resposta.value == respostaCorreta) {
+function verificarResposta(condicao) {
+    botaoConfirmarResposta.addEventListener('click', function () {
+        if (resposta.value == respostaCorreta) {
             acertos++;
-            sequenciaAtual++;
-            if(sequenciaAtual > maiorSequencia) {
-                maiorSequencia = sequenciaAtual;
-            };
+            questoesTotais++;
+            resposta.style.setProperty('background', 'var(--green)');
+            setTimeout(function () {
+                resposta.style.setProperty('background', '');
+                resposta.value = '';
+              }, 500);
         } else {
             erros++;
-            sequenciaAtual = 0;
+            questoesTotais++;
+            resposta.style.setProperty('background', 'red');
+            setTimeout(function () {
+                resposta.style.setProperty('background', '');
+                resposta.value = '';
+              }, 500);
         };
+        atualizarInformacoes();
         gerarCalculo(condicao);
     });
 };
 
-
-
-export function adicionar() {
+function iniciarJogo(operacao) {
     pontuacao.style.setProperty('display', 'none');
     partida.style.setProperty('display', 'block');
     contagemRegressivaPreparacao().then(() => {
         calculoInfo.style.setProperty('display', 'flex');
         calculo.style.setProperty('display', 'block');
         contagemRegressivaJogo();
-        gerarCalculo('adicionar');
+        gerarCalculo(operacao);
         verificarResposta(condicao);
     });
 };
 
+
+export function adicionar() {
+    iniciarJogo('adicionar');
+};
+
 export function subtrair() {
-    pontuacao.style.setProperty('display', 'none');
-    partida.style.setProperty('display', 'block');
-    contagemRegressivaPreparacao().then(() => {
-        calculoInfo.style.setProperty('display', 'flex');
-        calculo.style.setProperty('display', 'block');
-        contagemRegressivaJogo();
-        gerarCalculo('subtrair');
-        verificarResposta(condicao);
-        });
-    };
+    iniciarJogo('subtrair');
+};
 
 export function multiplicar() {
-    pontuacao.style.setProperty('display', 'none');
-    partida.style.setProperty('display', 'block');
-    contagemRegressivaPreparacao().then(() => {
-        calculoInfo.style.setProperty('display', 'flex');
-        calculo.style.setProperty('display', 'block');
-        contagemRegressivaJogo();
-        gerarCalculo('multiplicar');
-        verificarResposta(condicao);
-    });
+    iniciarJogo('multiplicar');
 };
